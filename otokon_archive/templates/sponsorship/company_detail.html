@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}{{ object.name }}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h1>{{ object.name }}</h1>
+</div>
+<dl>
+  <dt>Name:</dt>
+    <dd>ABC Holding</dd>
+  <dt>Categories:</dt>
+    <dd>
+      <i class="fa fa-tags"></i>
+      {% for tag in object.categories.all %}
+      <span class="label label-primary">{{ tag.title }}</span>
+      {% endfor %}
+    </dd>
+  <dt>Content:</dt>
+    <dd>{{ object.content|safe }} </dd>
+  <dt>Success:</dt>
+    {% if object.success %}
+    <dd>
+      <i class="fa fa-check"></i>
+    </dd>
+    {% else %}
+    <dd>
+      <i class="fa fa-close"></i>
+    </dd>
+    {% endif %}
+  <dt>Meeting:</dt>
+    {% if object.meeting %}
+    <dd>
+      <i class="fa fa-check"></i>
+    </dd>
+    {% else %}
+    <dd>
+      <i class="fa fa-close"></i>
+    </dd>
+    {% endif %}
+  <dt>Meeting Date:</dt>
+    <dd>
+      <i class="fa fa-calendar"></i>{{ object.created.date }}
+    </dd>
+</dl>
+
+{% endblock %}
