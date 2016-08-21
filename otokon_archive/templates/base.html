@@ -25,10 +25,10 @@
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <div class="container">
+
             <!-- Static navbar -->
             <nav class="navbar navbar-default navbar-static-top">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                             <span class="sr-only">Toggle navigation</span>
@@ -69,9 +69,15 @@
                 </div>
                 <!--/.container-fluid -->
             </nav>
+            <div class="container">
             {% block content %}{% endblock %}
             <!-- Main component for a primary marketing message or call to action -->
         </div>
+        <footer class="panel-footer">
+          <div class="container">
+            <p class="text-right">OTOKON IT TEAM 2016-2017</p>
+          </div>
+        </footer>
         <script src="{% static "assets/js/jquery.min.js" %}"></script>
         <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
