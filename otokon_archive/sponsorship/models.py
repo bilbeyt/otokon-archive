@@ -62,7 +62,7 @@ def organization_slug_handler(sender, instance, *args, **kwargs):
     instance.slug = slugify(instance.title)
 
 @receiver(post_save, sender=Organization, dispatch_uid="default_category_handler")
-def organization_category_handler(sender, instance, **kwargs):
+def organization_category_handler(sender, instance, created, **kwargs):
     titles = [
                 "Teknoloji Şirketleri", "İTÜ Mezunlarının Şirketleri",
                 "Mühendislik Şirketleri", "Makine ve Çelik Şirketleri",
@@ -71,5 +71,6 @@ def organization_category_handler(sender, instance, **kwargs):
                 "Otomativ Şirketleri", "Bankalar", "Otomasyon Şirketleri",
                 "3D Baskı Şirketleri"
              ]
-    for title in titles:
-        Category.objects.create(title=title, organization=instance)
+    if created:
+        for title in titles:
+            Category.objects.create(title=title, organization=instance)
