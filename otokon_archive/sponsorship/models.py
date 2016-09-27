@@ -44,6 +44,7 @@ class Company(models.Model):
     organization = models.ForeignKey(Organization)
     categories = models.ManyToManyField(Category)
     created=models.DateTimeField(auto_now_add=True)
+    meeting_time = models.DateTimeField()
     slug = models.SlugField(max_length=200)
     success = models.BooleanField("Is meeting successfull ?", default=False)
     meeting = models.BooleanField("Is this company called?", default=False)
