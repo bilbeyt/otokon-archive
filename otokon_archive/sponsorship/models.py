@@ -1,6 +1,8 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.template.defaultfilters import slugify
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 from ckeditor.fields import RichTextField
 from django.utils.encoding import python_2_unicode_compatible
@@ -58,3 +60,16 @@ def company_slug_handler(sender, instance, *args, **kwargs):
 @receiver(pre_save, sender=Organization)
 def organization_slug_handler(sender, instance, *args, **kwargs):
     instance.slug = slugify(instance.title)
+
+@receiver(post_save, sender=Organization, dispatch_uid="default_category_handler")
+def organization_category_handler(sender, instance, **kwargs):
+    titles = [
+                "Teknoloji Şirketleri", "İTÜ Mezunlarının Şirketleri",
+                "Mühendislik Şirketleri", "Makine ve Çelik Şirketleri",
+                "Telekomünikasyon Şirketleri", "Bilgisayar Şirketleri",
+                "Odalar ve Vakıflar", "Elektrik-Elektronik Şirketleri",
+                "Otomativ Şirketleri", "Bankalar", "Otomasyon Şirketleri",
+                "3D Baskı Şirketleri"
+             ]
+    for title in titles:
+        Category.objects.create(title=title, organization=instance)
