@@ -9,6 +9,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class OrganizationAdmin(admin.ModelAdmin):
     exclude = ["slug"]
+    ordering = ["order"]
     list_display = ["title", "active", "created"]
     list_filter = ["active", "created"]
     search_fields = ["title"]

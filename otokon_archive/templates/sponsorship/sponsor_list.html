@@ -15,7 +15,7 @@
       <div id="collapse{{ category.order }}" class="panel-collapse collapse">
         <div class="panel-body">
           {% for company in context.sponsor_list %}
-          <a href="{% url "company_detail" company.organization company.slug %}">{{ company.name }}</a>
+          <a href="{% url "company_detail" company.organization.slug company.slug %}">{{ company.name }}</a>
           {% endfor %}
         </div>
       </div>

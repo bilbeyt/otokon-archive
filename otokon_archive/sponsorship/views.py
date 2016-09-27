@@ -20,7 +20,7 @@ class OrganizationListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(OrganizationListView, self).get_context_data(**kwargs)
-        context["organization_list"] = Organization.objects.all()
+        context["organization_list"] = Organization.objects.all().order_by("order")
         return context
 
 
@@ -63,7 +63,7 @@ class CompanyListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(CompanyListView, self).get_context_data(**kwargs)
         organization = self.kwargs.get("organization")
-        context["category_list"] = Category.objects.filter(organization__slug=organization).exclude(sponsorship=True)
+        context["category_list"] = Category.objects.filter(organization__slug=organization).exclude(sponsorship=True).order_by("title")
         return context
 
 
