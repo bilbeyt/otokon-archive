@@ -10,7 +10,7 @@
     {% get_company_list category as context %}
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#panels1" href="#collapse{{ category.order }}">{{ category.title }}</a> </h4>
+        <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#panels1" href="#collapse{{ category.order }}">{{ category.get_title }}</a> </h4>
       </div>
       <div id="collapse{{ category.order }}" class="panel-collapse collapse">
         <div class="panel-body">

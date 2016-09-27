@@ -33,6 +33,9 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+    def get_title(self):
+        return self.title.split("-")[0]
+
 
 @python_2_unicode_compatible
 class Company(models.Model):
@@ -71,6 +74,9 @@ def organization_category_handler(sender, instance, created, **kwargs):
                 "Otomativ Şirketleri", "Bankalar", "Otomasyon Şirketleri",
                 "3D Baskı Şirketleri"
              ]
+    order = 0
     if created:
         for title in titles:
-            Category.objects.create(title=title, organization=instance)
+            string = "{}-{}".format(title, str(instance.title).split(" ")[1])
+            Category.objects.create(title=string, organization=instance, order=order)
+            order = order + 1

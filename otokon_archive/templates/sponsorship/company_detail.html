@@ -6,12 +6,12 @@
 </div>
 <dl>
   <dt>Name:</dt>
-    <dd>ABC Holding</dd>
+    <dd>{{ object.name }}</dd>
   <dt>Categories:</dt>
     <dd>
       <i class="fa fa-tags"></i>
       {% for tag in object.categories.all %}
-      <span class="label label-primary">{{ tag.title }}</span>
+      <span class="label label-primary">{{ tag.get_title }}</span>
       {% endfor %}
     </dd>
   <dt>Content:</dt>
