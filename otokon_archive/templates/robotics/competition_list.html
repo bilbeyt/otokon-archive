@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Robotics - Competition List{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Competition List</h1>
+  </div>
+<div class="list-group">
+    {% for competition in competitions %}
+        <a href="{% url 'robot_list' competition.season.slug competition.slug %}" class="list-group-item">{{ competition.name }}</a>
+    {% endfor %}
+</div>
+{% endblock %}

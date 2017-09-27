@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Robotics - Sponsor Detail{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ object.name }}</h1>
+</div>
+{{ object.content|safe }}
+{% endblock %}

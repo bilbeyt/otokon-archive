@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Robotics - Sponsor List{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Sponsor List</h1>
+  </div>
+<div class="list-group">
+    {% for sponsor in sponsors %}
+        <a href="{% url 'robotics_sponsor_detail' sponsor.season.slug sponsor.slug %}" class="list-group-item">{{ sponsor.name }}</a>
+    {% endfor %}
+</div>
+{% endblock %}

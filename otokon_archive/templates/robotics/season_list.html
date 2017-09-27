@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Robotics - Season List{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Season List</h1>
+  </div>
+<div class="list-group">
+    {% for season in seasons %}
+        <a href="{% url 'season_home' season.slug %}" class="list-group-item">{{ season.name }}</a>
+    {% endfor %}
+</div>
+{% endblock %}

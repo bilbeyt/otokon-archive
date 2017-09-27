@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Robotics - News{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>News</h1>
+  </div>
+<div class="list-group">
+    {% for news in news_list %}
+        <a href="{% url 'robotics_press_detail' news.season.slug news.slug %}" class="list-group-item">{{ news.name }}</a>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Robotics - Season Home{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Season Home</h1>
+  </div>
+<div class="list-group">
+    <a href="{% url 'competition_list' slug %}" class="list-group-item">Competitions</a>
+    <a href="{% url 'robotics_sponsorship' slug %}" class="list-group-item">Sponsorship</a>
+    <a href="{% url 'robotics_press' slug %}" class="list-group-item">Press</a>
+</div>
+{% endblock %}
