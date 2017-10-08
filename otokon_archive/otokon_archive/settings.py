@@ -145,3 +145,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
